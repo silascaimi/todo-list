@@ -2,11 +2,7 @@ var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
-var todos = [
-    'Fazer café',
-    'Estudar JavaScript',
-    'Acessar comunidade'
-];
+var todos = [];
 
 function renderTodos(){
     listElement.innerHTML = '';
@@ -36,9 +32,12 @@ function renderTodos(){
 renderTodos();
 
 buttonElement.onclick = function addTodo(){
-    var todoText = inputElement.value;
+    if (inputElement.value != ''){
+        todos.push(inputElement.value);
+    }
 
-    todos.push(todoText);
+    inputElement.value = '';
+
     renderTodos();
 }
 
